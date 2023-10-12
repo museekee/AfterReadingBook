@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독후감 리스트</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <header>
+        <span>독후감</span>
+    </header>
+    <main>
+        <div id="book-list"></div>
+        <div id="book-viewer">
+            <h2>독서 감상 문</h2>
+            <div id="bv-detail">
+                <div>
+                    <span class="title">도서명</span>
+                    <span class="content" id="bv-title">도서명zzz</span>
+                </div>
+                <div>
+                    <span class="title">글쓴이</span>
+                    <span class="content" id="bv-writer">글쓴이zzz</span>
+                </div>
+                <div>
+                    <span class="title">그린이</span>
+                    <span class="content" id="bv-drawer">그린이zzz</span>
+                </div>
+                <div>
+                    <span class="title">작성일</span>
+                    <span class="content" id="bv-uploadedAt">글쓴일zzz</span>
+                </div>
+                <div>
+                    <span class="title">출판사</span>
+                    <span class="content" id="bv-publisher">출판사zzz</span>
+                </div>
+            </div>
+            <div id="bv-content"></div>
+        </div>
+    </main>
+    <template id="book-item">
+        <style>
+            #content {
+                box-sizing: border-box;
+                display: grid;
+                width: 100%;
+                height: inherit;
+                grid-template-columns: 230px 1fr;
+                gap: 20px;
+                border: 1px #000000 dotted;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            #content.selected {
+                border: 3px #0088ff solid;
+            }
+            #content * {
+                user-select: none;
+            }
+            .left {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            #book-cover {
+                max-width: 100%;
+                aspect-ratio: 9 / 14;
+                flex: 1;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            #title {
+                user-select: text !important;
+                text-align: center;
+            }
+            .datas {
+                display: flex;
+                flex-direction: column;
+            }
+            .datas > h3 {
+                margin: 10px 0 10px 0;
+            }
+            .datas > span {
+                margin-bottom: 10px;
+                user-select: text !important;
+            }
+        </style>
+        <div id="content">
+            <div class="left">
+                <img id="book-cover" />
+                <h2 id="title">안녕하세요</h2>
+            </div>
+            <div class="datas">
+                <h3>글</h3>
+                <span id="writer">김일성</span>
+                <h3>그림</h3>
+                <span id="drawer">김정은</span>
+                <h3>출판사</h3>
+                <span id="publisher">교육도서출판사</span>
+                <h3>게시일</h3>
+                <span id="uploadedAt">2023. 10. 12</span>
+            </div>
+        </div>
+    </template>
+</body>
+</html>
